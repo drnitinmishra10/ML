@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logistic Regression — a Student‑Friendly Article</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #121a2b;
+      --ink: #e9efff;
+      --muted: #a8b3cf;
+      --accent: #8ab4ff;
+      --good: #4ade80;
+      --bad: #fca5a5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    html, body { background: var(--bg); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+    .wrap { max-width: 920px; margin: 3rem auto; padding: 0 1rem; }
+    header { display:flex; gap:1rem; align-items:center; margin-bottom: 1.25rem; }
+    header .tag { font-size: .85rem; color: var(--muted); padding:.25rem .5rem; border:1px solid #223; border-radius:999px; }
+    h1 { font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem); margin:.25rem 0 1rem; letter-spacing:.3px; }
+    h2 { margin-top:2rem; }
+    p { color: #d9e1ff; }
+    .card { background: var(--card); border: 1px solid #1f2a44; border-radius: 18px; padding: 1.25rem 1.25rem; box-shadow: var(--shadow); }
+    .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    kbd, code { background:#0e1730; border:1px solid #25325a; padding:.15rem .4rem; border-radius:6px; }
+    .eq { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#0e1730; border:1px solid #25325a; padding:.6rem .8rem; border-radius:12px; display:block; overflow-x:auto; }
+    .note { color: var(--muted); font-size:.95rem; }
+    .pill { display:inline-block; padding:.15rem .45rem; border-radius:999px; background:#0f1a34; border:1px solid #223454; font-size:.9rem; color:var(--muted); }
+    table { width:100%; border-collapse: collapse; margin: .5rem 0 1rem; background:#0f1730; border:1px solid #22325a; border-radius:12px; overflow:hidden; }
+    th, td { padding:.6rem .7rem; border-bottom:1px solid #1e2a4d; text-align:left; }
+    th { background:#0e162e; color:#cfe0ff; font-weight:600; }
+    tr:last-child td { border-bottom:none; }
+    .good { color: var(--good); font-weight:600; }
+    .bad { color: var(--bad); font-weight:600; }
+    .quiz { background:#0e1730; border:1px dashed #2a3b68; border-radius:14px; padding:1rem; }
+    .recap { display:grid; gap:.75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .recap .step { background:#0f1831; border:1px solid #243662; border-radius:12px; padding:.75rem .9rem; }
+    .muted { color: var(--muted); }
+    .footer { color: var(--muted); font-size:.9rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="tag">Machine Learning • Classification</span>
+    </header>
+
+    <h1>Logistic Regression — What It Is, Why It Works, and a Tiny Walk‑Through</h1>
+    <p>
+      Logistic regression predicts the <strong>probability</strong> of a binary outcome (e.g., <em>pass/fail</em>, <em>spam/not‑spam</em>). Unlike linear regression, its outputs are squeezed into the range <strong>0 to 1</strong>, so you can safely interpret them as probabilities and then convert them into class labels with a threshold (often 0.5).
+    </p>
+
+    <section class="card">
+      <h2>Why not just use linear regression?</h2>
+      <p>Linear regression can produce values below 0 or above 1, which don’t make sense as probabilities. Logistic regression fixes this by applying an S‑shaped “squashing” function.</p>
+      <div class="eq">Sigmoid / logistic function:
+        <br/>p = 1 / (1 + e<sup>−z</sup>)
+      </div>
+      <p class="note">Here, <code>z</code> is a linear combination of the inputs: <code>z = b₀ + b₁x₁ + b₂x₂ + …</code></p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>The model in one glance</h2>
+        <ol>
+          <li><strong>Linear step:</strong> Compute <code>z = b₀ + b₁x₁ + …</code></li>
+          <li><strong>Sigmoid step:</strong> Turn <code>z</code> into a probability with <code>p = 1/(1+e<sup>−z</sup>)</code></li>
+          <li><strong>Decision step:</strong> If <code>p &gt; 0.5</code> predict class 1, else class 0</li>
+        </ol>
+        <p class="note">The curve is steepest near <code>p ≈ 0.5</code>, so the model is most sensitive there.</p>
+      </section>
+
+      <section class="card">
+        <h2>A tiny worked example</h2>
+        <p>Task: predict whether a student will <em>pass</em> based on hours studied.</p>
+        <p>Suppose the trained model learned:</p>
+        <div class="eq">z = −4 + 1.2 × hours</div>
+        <p>Compute <code>p</code> with <code>p = 1 / (1 + e<sup>−z</sup>)</code>, then compare to 0.5.</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Numbers on the table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Hours</th>
+            <th>z</th>
+            <th>Probability p</th>
+            <th>Prediction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example Student</td>
+            <td>5</td>
+            <td>2.0</td>
+            <td>0.880797</td>
+            <td class="good">Pass</td>
+          </tr>
+          <tr>
+            <td>Student A</td>
+            <td>3</td>
+            <td>−0.4</td>
+            <td>0.401312</td>
+            <td class="bad">Fail</td>
+          </tr>
+          <tr>
+            <td>Student B</td>
+            <td>7</td>
+            <td>4.4</td>
+            <td>0.987872</td>
+            <td class="good">Pass</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">(Probabilities rounded to 6 decimal places.)</p>
+    </section>
+
+    <section class="quiz">
+      <h2>Quick practice (your turn)</h2>
+      <p>Use the same model <span class="pill">z = −4 + 1.2 × hours</span>.</p>
+      <ol>
+        <li>For 4 hours, compute <code>z</code> and then <code>p</code>. Is it pass or fail at the 0.5 threshold?</li>
+        <li>For 6 hours, repeat the calculation. What changes and why?</li>
+      </ol>
+      <p class="muted">Tip: e<sup>−2</sup> ≈ 0.135, e<sup>−0.8</sup> ≈ 0.449, e<sup>−1.6</sup> ≈ 0.202.</p>
+    </section>
+
+    <section class="card">
+      <h2>Recap & mental model</h2>
+      <div class="recap">
+        <div class="step"><strong>Inputs → z</strong><br/><span class="muted">Blend features linearly.</span></div>
+        <div class="step"><strong>z → p</strong><br/><span class="muted">Squash with a sigmoid to get a probability.</span></div>
+        <div class="step"><strong>p → label</strong><br/><span class="muted">Compare to a threshold (often 0.5).</span></div>
+      </div>
+      <p class="note" style="margin-top:.75rem;">Remember: probabilities near 0 or 1 change slowly; the middle (around 0.5) is where the model is most responsive.</p>
+    </section>
+
+    <p class="footer">Made as a learning aid: concise, example‑first, and math‑light where helpful.</p>
+  </div>
+</body>
+</html>
