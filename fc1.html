@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Fundamentals Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 5px;
+        }
+        .options label {
+            display: block;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .options label:hover {
+            background-color: #dcdcdc;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .correct-answer {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .wrong-answer {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Computer Fundamentals Quiz</h1>
+    <p>Test your knowledge with these 50 multiple-choice questions on the basics of computers.</p>
+    
+    <form id="quizForm">
+        
+        <div class="question">
+            <div class="question-text">1. What is the primary function of a computer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="a"> To store large amounts of data.</label></li>
+                <li><label><input type="radio" name="q1" value="b"> To display images and text.</label></li>
+                <li><label><input type="radio" name="q1" value="c"> To process data into information.</label></li>
+                <li><label><input type="radio" name="q1" value="d"> To run applications and games.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">2. Which characteristic of a computer allows it to perform tasks consistently without making mistakes?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="a"> Speed</label></li>
+                <li><label><input type="radio" name="q2" value="b"> Accuracy</label></li>
+                <li><label><input type="radio" name="q2" value="c"> Versatility</label></li>
+                <li><label><input type="radio" name="q2" value="d"> Diligence</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">3. The CPU is also known as the:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="a"> Memory of the computer</label></li>
+                <li><label><input type="radio" name="q3" value="b"> Powerhouse of the computer</label></li>
+                <li><label><input type="radio" name="q3" value="c"> Brain of the computer</label></li>
+                <li><label><input type="radio" name="q3" value="d"> Nerve center of the computer</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">4. Which of the following is an example of an input device?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="a"> Monitor</label></li>
+                <li><label><input type="radio" name="q4" value="b"> Printer</label></li>
+                <li><label><input type="radio" name="q4" value="c"> Keyboard</label></li>
+                <li><label><input type="radio" name="q4" value="d"> Speaker</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">5. The first generation of computers used which technology for processing?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="a"> Transistors</label></li>
+                <li><label><input type="radio" name="q5" value="b"> Integrated circuits</label></li>
+                <li><label><input type="radio" name="q5" value="c"> Vacuum tubes</label></li>
+                <li><label><input type="radio" name="q5" value="d"> Microprocessors</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">6. Which type of computer is designed to be used by a single person at a time?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="a"> Mainframe computer</label></li>
+                <li><label><input type="radio" name="q6" value="b"> Supercomputer</label></li>
+                <li><label><input type="radio" name="q6" value="c"> Microcomputer</label></li>
+                <li><label><input type="radio" name="q6" value="d"> Minicomputer</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">7. In the medical field, what is a primary application of computers?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="a"> Entertainment and gaming</label></li>
+                <li><label><input type="radio" name="q7" value="b"> Patient data management and diagnosis</label></li>
+                <li><label><input type="radio" name="q7" value="c"> Robotics and automation</label></li>
+                <li><label><input type="radio" name="q7" value="d"> Financial trading and stock analysis</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">8. What is the primary function of the Arithmetic Logic Unit (ALU) within the CPU?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="a"> To control the flow of data.</label></li>
+                <li><label><input type="radio" name="q8" value="b"> To store temporary data.</label></li>
+                <li><label><input type="radio" name="q8" value="c"> To perform arithmetic and logical operations.</label></li>
+                <li><label><input type="radio" name="q8" value="d"> To fetch instructions from memory.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">9. Which of the following is considered both an input and an output device?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="a"> Mouse</label></li>
+                <li><label><input type="radio" name="q9" value="b"> Webcam</label></li>
+                <li><label><input type="radio" name="q9" value="c"> Touch screen</label></li>
+                <li><label><input type="radio" name="q9" value="d"> Microphone</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">10. The use of Integrated Circuits (ICs) marked the beginning of which computer generation?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q10" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q10" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q10" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <div class="question-text">11. Which of the following describes the 'diligence' characteristic of a computer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q11" value="a"> Its ability to perform tasks very quickly.</label></li>
+                <li><label><input type="radio" name="q11" value="b"> Its ability to work tirelessly without getting bored or tired.</label></li>
+                <li><label><input type="radio" name="q11" value="c"> Its ability to perform a variety of different tasks.</label></li>
+                <li><label><input type="radio" name="q11" value="d"> Its ability to perform calculations without errors.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">12. The CPU's Control Unit is responsible for:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q12" value="a"> Performing mathematical calculations.</label></li>
+                <li><label><input type="radio" name="q12" value="b"> Storing data and instructions.</label></li>
+                <li><label><input type="radio" name="q12" value="c"> Coordinating and controlling all operations of the computer.</label></li>
+                <li><label><input type="radio" name="q12" value="d"> Communicating with external devices.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">13. Which of the following is a type of primary memory that is volatile?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q13" value="a"> Hard Disk Drive (HDD)</label></li>
+                <li><label><input type="radio" name="q13" value="b"> Solid State Drive (SSD)</label></li>
+                <li><label><input type="radio" name="q13" value="c"> RAM (Random Access Memory)</label></li>
+                <li><label><input type="radio" name="q13" value="d"> ROM (Read-Only Memory)</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">14. What is a major characteristic of the fourth generation of computers?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q14" value="a"> The use of transistors.</label></li>
+                <li><label><input type="radio" name="q14" value="b"> The use of vacuum tubes.</label></li>
+                <li><label><input type="radio" name="q14" value="c"> The development of the microprocessor.</label></li>
+                <li><label><input type="radio" name="q14" value="d"> The use of artificial intelligence.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">15. A Supercomputer is primarily used for:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q15" value="a"> Personal use and office work.</label></li>
+                <li><label><input type="radio" name="q15" value="b"> Large-scale scientific and engineering problems.</label></li>
+                <li><label><input type="radio" name="q15" value="c"> Serving data to multiple users in a large organization.</label></li>
+                <li><label><input type="radio" name="q15" value="d"> Controlling industrial processes.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">16. Which of the following is an example of a computer application in education?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q16" value="a"> E-commerce platforms.</label></li>
+                <li><label><input type="radio" name="q16" value="b"> Learning Management Systems (LMS).</label></li>
+                <li><label><input type="radio" name="q16" value="c"> Computer-aided design (CAD).</label></li>
+                <li><label><input type="radio" name="q16" value="d"> Geographic Information Systems (GIS).</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">17. The term 'versatility' in computing refers to a computer's ability to:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q17" value="a"> Perform tasks very quickly.</label></li>
+                <li><label><input type="radio" name="q17" value="b"> Work without getting tired.</label></li>
+                <li><label><input type="radio" name="q17" value="c"> Be used for a wide variety of different jobs.</label></li>
+                <li><label><input type="radio" name="q17" value="d"> Store and recall large amounts of data.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">18. Which component is responsible for retrieving instructions from memory?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q18" value="a"> Arithmetic Logic Unit (ALU)</label></li>
+                <li><label><input type="radio" name="q18" value="b"> Control Unit (CU)</label></li>
+                <li><label><input type="radio" name="q18" value="c"> RAM</label></li>
+                <li><label><input type="radio" name="q18" value="d"> Input/Output (I/O) unit</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">19. What is the main advantage of using a Solid State Drive (SSD) over a Hard Disk Drive (HDD)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q19" value="a"> It has a larger storage capacity for the same price.</label></li>
+                <li><label><input type="radio" name="q19" value="b"> It is a mechanical drive with spinning platters.</label></li>
+                <li><label><input type="radio" name="q19" value="c"> It is faster and more durable.</label></li>
+                <li><label><input type="radio" name="q19" value="d"> It uses a magnetic disk to store data.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">20. The fifth generation of computers is based on what technology?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q20" value="a"> Transistors</label></li>
+                <li><label><input type="radio" name="q20" value="b"> Integrated Circuits (ICs)</label></li>
+                <li><label><input type="radio" name="q20" value="c"> Microprocessors</label></li>
+                <li><label><input type="radio" name="q20" value="d"> Artificial Intelligence (AI)</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <div class="question-text">21. Which of the following would be classified as a mainframe computer application?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q21" value="a"> Personal photo editing.</label></li>
+                <li><label><input type="radio" name="q21" value="b"> Online airline reservation systems.</label></li>
+                <li><label><input type="radio" name="q21" value="c"> Weather forecasting and climate modeling.</label></li>
+                <li><label><input type="radio" name="q21" value="d"> Running a small business accounting software.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">22. What is the primary function of an output device?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q22" value="a"> To receive data from the user.</label></li>
+                <li><label><input type="radio" name="q22" value="b"> To process data.</label></li>
+                <li><label><input type="radio" name="q22" value="c"> To present processed data to the user.</label></li>
+                <li><label><input type="radio" name="q22" value="d"> To store data temporarily.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">23. Which generation of computers used machine language for programming?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q23" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q23" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q23" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q23" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">24. What is the purpose of the Motherboard in a computer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q24" value="a"> To store all the computer's data.</label></li>
+                <li><label><input type="radio" name="q24" value="b"> To provide power to all components.</label></li>
+                <li><label><input type="radio" name="q24" value="c"> To connect and allow communication between all components.</label></li>
+                <li><label><input type="radio" name="q24" value="d"> To perform all the calculations and logical operations.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">25. Which of the following is a characteristic of a Minicomputer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q25" value="a"> It is the smallest and least powerful computer.</label></li>
+                <li><label><input type="radio" name="q25" value="b"> It is designed for a single user.</label></li>
+                <li><label><input type="radio" name="q25" value="c"> It is used for extremely complex scientific calculations.</label></li>
+                <li><label><input type="radio" name="q25" value="d"> It supports multiple users and is larger than a microcomputer.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">26. A scanner is a peripheral device that performs which function?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q26" value="a"> Input</label></li>
+                <li><label><input type="radio" name="q26" value="b"> Output</label></li>
+                <li><label><input type="radio" name="q26" value="c"> Processing</label></li>
+                <li><label><input type="radio" name="q26" value="d"> Storage</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">27. The concept of 'reliability' in a computer system means that it:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q27" value="a"> Can perform a variety of tasks.</label></li>
+                <li><label><input type="radio" name="q27" value="b"> Is always accurate and performs consistently.</label></li>
+                <li><label><input type="radio" name="q27" value="c"> Can process data at a very high speed.</label></li>
+                <li><label><input type="radio" name="q27" value="d"> Can be programmed to do any kind of job.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">28. What is the primary difference between RAM and ROM?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q28" value="a"> RAM is secondary storage, while ROM is primary memory.</label></li>
+                <li><label><input type="radio" name="q28" value="b"> RAM is non-volatile, while ROM is volatile.</label></li>
+                <li><label><input type="radio" name="q28" value="c"> RAM is faster than ROM.</label></li>
+                <li><label><input type="radio" name="q28" value="d"> RAM is used for temporary storage, while ROM is used for permanent instructions.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">29. The use of assembly language and high-level programming languages characterized which computer generation?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q29" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q29" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q29" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q29" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">30. Which of the following is an example of a Supercomputer application?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q30" value="a"> Managing a company's payroll.</label></li>
+                <li><label><input type="radio" name="q30" value="b"> Running a video game on a personal computer.</label></li>
+                <li><label><input type="radio" name="q30" value="c"> Performing complex climate modeling and simulations.</label></li>
+                <li><label><input type="radio" name="q30" value="d"> Serving web pages to users.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">31. Which peripheral device is used to produce a hard copy of a document?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q31" value="a"> Scanner</label></li>
+                <li><label><input type="radio" name="q31" value="b"> Monitor</label></li>
+                <li><label><input type="radio" name="q31" value="c"> Printer</label></li>
+                <li><label><input type="radio" name="q31" value="d"> Keyboard</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">32. What is the main role of a computer in the business sector?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q32" value="a"> To entertain customers.</label></li>
+                <li><label><input type="radio" name="q32" value="b"> To perform calculations, manage records, and automate tasks.</label></li>
+                <li><label><input type="radio" name="q32" value="c"> To provide medical diagnosis.</label></li>
+                <li><label><input type="radio" name="q32" value="d"> To create and share art.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">33. Which generation of computers introduced the concept of the Graphical User Interface (GUI)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q33" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q33" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q33" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q33" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">34. The computer's ability to store and retrieve data is known as:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q34" value="a"> Speed</label></li>
+                <li><label><input type="radio" name="q34" value="b"> Accuracy</label></li>
+                <li><label><input type="radio" name="q34" value="c"> Storage</label></li>
+                <li><label><input type="radio" name="q34" value="d"> Diligence</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">35. What is the main difference between a Microcomputer and a Minicomputer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q35" value="a"> A microcomputer is multi-user, while a minicomputer is single-user.</label></li>
+                <li><label><input type="radio" name="q35" value="b"> A microcomputer is less powerful and smaller than a minicomputer.</label></li>
+                <li><label><input type="radio" name="q35" value="c"> A microcomputer is used for scientific research, while a minicomputer is for business.</label></li>
+                <li><label><input type="radio" name="q35" value="d"> A microcomputer uses microprocessors, while a minicomputer does not.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">36. Which component of the computer is considered volatile memory?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q36" value="a"> ROM</label></li>
+                <li><label><input type="radio" name="q36" value="b"> Hard Disk Drive</label></li>
+                <li><label><input type="radio" name="q36" value="c"> RAM</label></li>
+                <li><label><input type="radio" name="q36" value="d"> SSD</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">37. Which of the following is not a characteristic of a computer?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q37" value="a"> Speed</label></li>
+                <li><label><input type="radio" name="q37" value="b"> Accuracy</label></li>
+                <li><label><input type="radio" name="q37" value="c"> Laziness</label></li>
+                <li><label><input type="radio" name="q37" value="d"> Versatility</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">38. The central processing unit (CPU) is a combination of which two main parts?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q38" value="a"> RAM and ROM</label></li>
+                <li><label><input type="radio" name="q38" value="b"> Monitor and Keyboard</label></li>
+                <li><label><input type="radio" name="q38" value="c"> Arithmetic Logic Unit (ALU) and Control Unit (CU)</label></li>
+                <li><label><input type="radio" name="q38" value="d"> Hard Disk Drive and SSD</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">39. Which generation of computers introduced the use of magnetic drums and magnetic core memory?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q39" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q39" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q39" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q39" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">40. A Mainframe computer is best described as:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q40" value="a"> A small, single-user computer.</label></li>
+                <li><label><input type="radio" name="q40" value="b"> A mid-sized computer supporting a small group of users.</label></li>
+                <li><label><input type="radio" name="q40" value="c"> A powerful, multi-user computer used for high-volume data processing.</label></li>
+                <li><label><input type="radio" name="q40" value="d"> The fastest computer for complex calculations.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">41. Which of the following is a computer application in the field of entertainment?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q41" value="a"> Medical imaging</label></li>
+                <li><label><input type="radio" name="q41" value="b"> Video games and streaming services</label></li>
+                <li><label><input type="radio" name="q41" value="c"> Financial modeling</label></li>
+                <li><label><input type="radio" name="q41" value="d"> Weather forecasting</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">42. The term 'data' in computer science refers to:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q42" value="a"> The final processed output.</label></li>
+                <li><label><input type="radio" name="q42" value="b"> Raw, unprocessed facts and figures.</label></li>
+                <li><label><input type="radio" name="q42" value="c"> The programs and instructions.</label></li>
+                <li><label><input type="radio" name="q42" value="d"> The physical components of the computer.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">43. What is the primary function of the I/O (Input/Output) Unit?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q43" value="a"> To perform all the calculations.</label></li>
+                <li><label><input type="radio" name="q43" value="b"> To manage the communication between the CPU and peripheral devices.</label></li>
+                <li><label><input type="radio" name="q43" value="c"> To store the operating system.</label></li>
+                <li><label><input type="radio" name="q43" value="d"> To provide power to the computer.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">44. Which generation of computers made use of operating systems that allowed for multitasking?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q44" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q44" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q44" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q44" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">45. The term 'information' in computing refers to:</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q45" value="a"> Raw, unprocessed facts and figures.</label></li>
+                <li><label><input type="radio" name="q45" value="b"> The computer's programs and instructions.</label></li>
+                <li><label><input type="radio" name="q45" value="c"> Data that has been processed and made meaningful.</label></li>
+                <li><label><input type="radio" name="q45" value="d"> The physical components of the computer.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">46. Which type of computer is often used as a central server in a client-server network for a large organization?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q46" value="a"> Microcomputer</label></li>
+                <li><label><input type="radio" name="q46" value="b"> Minicomputer</label></li>
+                <li><label><input type="radio" name="q46" value="c"> Mainframe computer</label></li>
+                <li><label><input type="radio" name="q46" value="d"> Supercomputer</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">47. The use of Very Large Scale Integration (VLSI) chips is a key feature of which generation?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q47" value="a"> Second Generation</label></li>
+                <li><label><input type="radio" name="q47" value="b"> Third Generation</label></li>
+                <li><label><input type="radio" name="q47" value="c"> Fourth Generation</label></li>
+                <li><label><input type="radio" name="q47" value="d"> Fifth Generation</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">48. Which of the following is a computer application in the field of finance?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q48" value="a"> E-learning platforms</label></li>
+                <li><label><input type="radio" name="q48" value="b"> Computer-aided manufacturing (CAM)</label></li>
+                <li><label><input type="radio" name="q48" value="c"> Electronic funds transfer (EFT) and online banking</label></li>
+                <li><label><input type="radio" name="q48" value="d"> Creating animated movies</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">49. What is the purpose of the computer's storage unit?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q49" value="a"> To perform all the calculations.</label></li>
+                <li><label><input type="radio" name="q49" value="b"> To permanently store data and instructions.</label></li>
+                <li><label><input type="radio" name="q49" value="c"> To display the output to the user.</label></li>
+                <li><label><input type="radio" name="q49" value="d"> To receive input from the user.</label></li>
+            </ul>
+        </div>
+        
+        <div class="question">
+            <div class="question-text">50. Which generation of computers was defined by the transition from machine language to assembly and high-level programming languages?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q50" value="a"> First Generation</label></li>
+                <li><label><input type="radio" name="q50" value="b"> Second Generation</label></li>
+                <li><label><input type="radio" name="q50" value="c"> Third Generation</label></li>
+                <li><label><input type="radio" name="q50" value="d"> Fourth Generation</label></li>
+            </ul>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+    
+    <div class="results" id="results"></div>
+
+</div>
+
+<script>
+    const correctAnswers = {
+        q1: 'c', q2: 'b', q3: 'c', q4: 'c', q5: 'c',
+        q6: 'c', q7: 'b', q8: 'c', q9: 'c', q10: 'c',
+        q11: 'b', q12: 'c', q13: 'c', q14: 'c', q15: 'b',
+        q16: 'b', q17: 'c', q18: 'b', q19: 'c', q20: 'd',
+        q21: 'b', q22: 'c', q23: 'a', q24: 'c', q25: 'd',
+        q26: 'a', q27: 'b', q28: 'd', q29: 'b', q30: 'c',
+        q31: 'c', q32: 'b', q33: 'd', q34: 'c', q35: 'b',
+        q36: 'c', q37: 'c', q38: 'c', q39: 'b', q40: 'c',
+        q41: 'b', q42: 'b', q43: 'b', q44: 'c', q45: 'c',
+        q46: 'c', q47: 'c', q48: 'c', q49: 'b', q50: 'b'
+    };
+
+    function checkAnswers() {
+        let score = 0;
+        const form = document.getElementById('quizForm');
+        const resultsDiv = document.getElementById('results');
+        
+        resultsDiv.innerHTML = '';
+        
+        for (let i = 1; i <= 50; i++) {
+            const questionName = `q${i}`;
+            const selectedOption = form.elements[questionName].value;
+            const questionElement = form.querySelector(`.question:nth-of-type(${i})`);
+            
+            // Reset previous styling
+            const labels = questionElement.querySelectorAll('label');
+            labels.forEach(label => label.classList.remove('correct-answer', 'wrong-answer'));
+
+            if (selectedOption === correctAnswers[questionName]) {
+                score++;
+                questionElement.querySelector(`label[for="${questionName}${selectedOption}"]`).classList.add('correct-answer');
+            } else {
+                if (selectedOption) {
+                    const wrongLabel = questionElement.querySelector(`label[for="${questionName}${selectedOption}"]`);
+                    if (wrongLabel) {
+                        wrongLabel.classList.add('wrong-answer');
+                    }
+                }
+                const correctLabel = questionElement.querySelector(`input[value="${correctAnswers[questionName]}"]`).closest('label');
+                if (correctLabel) {
+                    correctLabel.classList.add('correct-answer');
+                }
+            }
+        }
+        
+        resultsDiv.innerHTML = `You scored ${score} out of 50!`;
+    }
+</script>
+
+</body>
+</html>
