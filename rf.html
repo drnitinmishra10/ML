@@ -1,18 +1,41 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datasets that Cause Overfitting on Decision Trees but Perform Well on Random Forests</title>
+    <script>
+        // JavaScript to handle the counter
+        if (localStorage.getItem("counter") === null) {
+            localStorage.setItem("counter", 0); // Initialize counter if not present
+        }
+
+        function incrementCounter() {
+            let counter = parseInt(localStorage.getItem("counter"));
+            counter++;
+            localStorage.setItem("counter", counter); // Update counter in local storage
+            document.getElementById("counterDisplay").innerText = counter;
+        }
+    </script>
+    <style>
+        #counterSection {
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2em;
+            border-top: 2px solid #ddd;
+        }
+    </style>
 </head>
-<body>
+<body onload="incrementCounter()">
     <header>
         <h1>Datasets that Cause Overfitting on Decision Trees but Perform Well on Random Forests</h1>
     </header>
     <section>
         <p>Overfitting in decision trees occurs when the model is too complex and captures noise in the data, leading to poor generalization. However, random forests tend to handle this better because they aggregate results from multiple decision trees, reducing overfitting by averaging out predictions from different models. Below are some datasets where decision trees may overfit, but random forests give better results:</p>
+
         <h2>1. Iris Dataset</h2>
         <p><strong>Description:</strong> A classic dataset with 150 samples and 4 features, often used for classification tasks.</p>
         <p><strong>Why Overfitting with Decision Trees:</strong> Decision trees may overfit due to the simplicity and small size of the dataset, capturing noise.</p>
@@ -62,9 +85,14 @@
         <p><strong>Description:</strong> Contains weather data, including temperature, humidity, wind speed, etc., used to predict whether it will rain tomorrow.</p>
         <p><strong>Why Overfitting with Decision Trees:</strong> Decision trees may overfit on highly noisy or imbalanced weather data.</p>
         <p><strong>Random Forest Advantage:</strong> Random forests reduce overfitting by combining multiple decision trees, especially when dealing with noisy or complex features.</p>
-
+        
         <h2>Conclusion</h2>
         <p>While decision trees may overfit on smaller, complex datasets or those with a high number of features, random forests tend to provide a better generalization by averaging over multiple trees, making them more robust in many practical situations.</p>
     </section>
+
+    <!-- Counter Section -->
+    <div id="counterSection">
+        <p><strong>Page Load Counter: </strong><span id="counterDisplay">0</span></p>
+    </div>
 </body>
 </html>
